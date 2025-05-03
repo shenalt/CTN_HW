@@ -2,16 +2,9 @@ const url = 'https://raw.githubusercontent.com/shenalt/CTN_HW/refs/heads/main/Ca
 
 // Create a function to parse the CSV into an array
 function parseCSV(data) { 
-    const regex = /,(?=(?:[^"]*"[^"]*")*[^"]*$)/; // Sets regex rule in order to split based on commas but not commas inside double-quoted substrings
-
     const rows = data.trim().split('\n'); // Splits the csv into rows
-
-
     const headers = rows[0].split(','); // Splits the first rows into header names
-
-
     const res = rows.slice(1).map(row => {  // Skip the headers and extract the rest of the row
-
         const vals = row.split(',');
         const obj = {}; // Init the container to be created containing the relevant info for each of the artists
         headers.forEach((header, i) => {
