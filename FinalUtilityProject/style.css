@@ -60,6 +60,10 @@ footer {
     color: #777;
 }
 
+span{
+    margin: .5rem;
+}
+
 .correct {
     background-color: #d4edda;
     color: #155724;

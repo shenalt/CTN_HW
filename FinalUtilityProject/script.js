@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const questionSection = this.closest('.multiplechoice'); // Changed from .utility to .multiplechoice
             const selectedAnswer = this.dataset.answer;
             const correctOne = questionSection.querySelectorAll('.correctOne')
-            console.log(correctOne[0].dataset.answer)
+            const spanElem = this.closest('.multiplechoice').querySelector('span')
 
             let correctAnswer = '';
             if (questionSection.id === 'question1') {
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(selectedAnswer === correctAnswer){
                 this.classList.add('correct');
                 questionSection.classList.add('clicked')
+                spanElem.style.display = '';
                 counter++;
             } else{
                 this.classList.add('incorrect')
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     correctAmount--;
                     setTimeout(() => {
                         correctOne[0].classList.add('correct')
+                        spanElem.style.display = '';
                     }, 50);
                     questionSection.classList.add('clicked')
                     counter++;
